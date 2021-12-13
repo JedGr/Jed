@@ -15,7 +15,7 @@
                     <li>La date de départ est le  : {{lesexcursions[identifiant-1].dateDep}}</li>
                     <li>La date de payment est le  :{{lesexcursions[identifiant-1].datePay}} </li>
                    <li> {{lesexcursions[identifiant-1].description}}</li>
-                    <li>Prix  : {{lesexcursions[identifiant-1].prix}} TND </li>
+                    <li>Prix  : {{lesexcursions[identifiant-1].prix|number:"2.3"}}TND   </li>
                 </ul>
             </div>
             <div class="col-md-7"> <img [src]="lesexcursions[identifiant-1].photo" width="90%" height="95%"> </div>
@@ -32,6 +32,7 @@
 <div *ngFor="let tab of lesexcursions[identifiant-1].commentaire">
         <jed-commentaire *ngIf="display" [com]="tab"></jed-commentaire>
         </div>
+       
        
     </div>
 </div>

@@ -1,9 +1,14 @@
-<h1>Contactez-nous ! </h1>
-<form action="mailto:jed.grira99@gmail.com" (onSubmit)="alertt()">
-    Nom   :<input type="text" ><br>
-    Prénom:<input type="text"><br>
-    Email :<input type="text"> <br>
-    Message<input type="text" placeholder="Comment puis-je savoir les activités de chaque excursion ?">
-   <br>
-    <input type="submit" value="Envoyer" class="btn btn-primary">
-</form>
+
+    <h2> Donner Feedback à notre site Web.</h2>
+    <form action="mailto:besttunisiatravel@gmail.com" method="get" enctype="text/plain">
+      <p>Nom: <input type="text" name="name"/></p>
+      <p>Email: <input type="text" name="email"/></p>
+      <p>Commentaires:
+        <br />
+        <textarea name="comments" rows = "12" cols = "35"></textarea>
+        <br>
+      <p><input type="submit" name="submit" value="Envoyer" />
+        <input type="reset" name="reset" value="Supprimer" />
+      </p>
+    </form>
+  

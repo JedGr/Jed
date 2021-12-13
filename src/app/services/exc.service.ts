@@ -19,7 +19,7 @@ addExcursion(e:Excursion):Observable<Excursion>{
 updateExcursion(id:number, excursion:Excursion):Observable<Excursion>{
   return this.http.put<Excursion>(URL+"/"+id,excursion );
 }
-deleteLivre(id:number){
+deleteExcursion(id:number){
   return this.http.delete(URL+ "/"+id);
 }
 

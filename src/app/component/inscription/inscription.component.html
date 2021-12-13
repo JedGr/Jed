@@ -1,1 +1,25 @@
-<p>inscription works!</p>
+<h2>Pour participer, veuillez remplir le formulaire.
+</h2>
+<form action="mailto:besttunisiatravel@gmail.com" method="get">
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label >Nom</label>
+        <input type="text" class="form-control" name="nom" required placeholder="Nom">
+      </div>
+      <div class="form-group col-md-6">
+        <label>Prénom</label>
+        <input type="text" class="form-control" name="prenom" placeholder="Prénom" required>
+      </div>
+    </div>
+    <div class="form-group">
+      <label >Email</label>
+      <input type="email" class="form-control" name="email" required=true placeholder="jedofficiel@gmail.com">
+    </div>
+    <div class="form-group">
+      <label for="inputAddress2">Nom de l'éxcursion</label>
+      <input type="text" class="form-control" name="nomexc" required placeholder="Tozeur">
+    </div>
+
+    <input type="submit" class="btn btn-primary" value="Participer" onclick="alert('Un mail de confirmation vous sera envoyer dans 10 minutes')">
+  </form>
+

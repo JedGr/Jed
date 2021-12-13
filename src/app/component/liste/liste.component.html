@@ -1,13 +1,13 @@
 
 
 <h2 style="text-align: center;">Liste des Excursions</h2>
-
-
+<h2>  Rechercher une Excursion </h2> <input type="text" placeholder="Saisissez un emplacement" class="form-control" name="rech" [(ngModel)]="rech" (ngModelChange)="onRech()" >
+<br>
 <div class="container">
     <div class="row">
         <div class="col-md-4" *ngFor="let t of lesexcursions" >
             <div class="card text-center">
-                <div class="card-header text-center">{{t.lib}}</div>
+                <div class="card-header text-center">{{t.lib|pipe}}</div>
                 <div class="card-body" >
                     <span *ngIf="t.nouv" class=" btn-success">Nouveau</span><br/>
                    

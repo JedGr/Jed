@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Excursion } from 'src/app/class/excursion';
-import { ExcursionService } from 'src/app/services/excursion.service';
+import { ExcService } from 'src/app/services/exc.service';
 
 @Component({
   selector: 'jed-accueil',
@@ -10,7 +10,7 @@ import { ExcursionService } from 'src/app/services/excursion.service';
 })
 export class AccueilComponent implements OnInit {
 lesexcursions:Excursion[]=[];
-  constructor(private excursionService:ExcursionService,private router:Router) { }
+  constructor(private excService:ExcService,private router:Router) { }
   onListe(){
     this.router.navigate(['/liste']);
   }
@@ -19,7 +19,9 @@ lesexcursions:Excursion[]=[];
   }
 
   ngOnInit(): void {
-    this.lesexcursions=this.excursionService.getExcursion();
+    this.excService.getExcursion().subscribe(
+      data => this.lesexcursions = data
+    )
   }
 
 }

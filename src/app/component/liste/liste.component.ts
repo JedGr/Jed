@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ExcursionService } from 'src/app/services/excursion.service';
+import { ExcService } from 'src/app/services/exc.service';
 import { ActivatedRoute } from '@angular/router';
 
 import { Excursion } from 'src/app/class/excursion';
@@ -10,10 +10,22 @@ import { Excursion } from 'src/app/class/excursion';
 })
 export class ListeComponent implements OnInit {
   lesexcursions:Excursion[]=[];
-  constructor(private excursionService:ExcursionService) { }
+  rech:any;
+  constructor(private excService:ExcService) { }
 
   ngOnInit(): void {
-    this.lesexcursions=this.excursionService.getExcursion();
+    this.excService.getExcursion().subscribe(
+      data => this.lesexcursions = data
+    )  }
+    onRech(){
+      if(this.rech == ""){
+        this.ngOnInit();
+      }else{
+      this.lesexcursions=this.lesexcursions.filter(exc => {
+        return exc.lib.toLocaleLowerCase().match(this.rech.toLocaleLowerCase());
+    })
   }
+    }
+    
 
 }

@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { Commentaire } from 'src/app/class/commentaire';
 import { Excursion } from 'src/app/class/excursion';
-import { ExcursionService } from 'src/app/services/excursion.service';
+import { ExcService } from 'src/app/services/exc.service';
 @Component({
   selector: 'jed-selected-excursion',
   templateUrl: './selected-excursion.component.html',
@@ -22,19 +22,20 @@ affiche(){
 
 lesexcursions: Excursion[]=[];
 
-  constructor(private activatedRoute:ActivatedRoute,private router:Router,private excursionService:ExcursionService) { }
+  constructor(private activatedRoute:ActivatedRoute,private router:Router,private excService:ExcService) { }
 
   onListe(){
     this.router.navigate(['/liste']);
   }
 
   ngOnInit(): void {
-    this.lesexcursions=this.excursionService.getExcursion();
-    this.identifiant=this.activatedRoute.snapshot.params['id'];
+    this.excService.getExcursion().subscribe(
+      data => this.lesexcursions = data
+    )
+        this.identifiant=this.activatedRoute.snapshot.params['id'];
     this.prix=this.activatedRoute.snapshot.params['prix'];
 
-
-
   }
+
 
 }

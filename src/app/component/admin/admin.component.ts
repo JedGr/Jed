@@ -9,7 +9,7 @@ import { ExcService } from 'src/app/services/exc.service';
 })
 export class AdminComponent implements OnInit {
 lesexcursions:Excursion[]=[];
-
+rech:any;
 
 excursionForm:FormGroup=new FormGroup({});
 private basePath = '/images';
@@ -42,7 +42,15 @@ description:["jed grira"]
   this.excService.addExcursion(this.excursionForm.value).subscribe(
     data => this.lesexcursions.push(data)
   ) }
-
+  onRech(){
+    if(this.rech == ""){
+      this.ngOnInit();
+    }else{
+    this.lesexcursions=this.lesexcursions.filter(exc => {
+      return exc.lib.toLocaleLowerCase().match(this.rech.toLocaleLowerCase());
+  })
+}
+  }
   onModifierExcursion(id:number){
     this.excService.updateExcursion(id, this.excursionForm.value)
     .subscribe(
@@ -53,7 +61,7 @@ description:["jed grira"]
     )
   }
   onSupprimerExcursion(id:number){
-    this.excService.deleteLivre(id)
+    this.excService.deleteExcursion(id)
     .subscribe(
       ()=>
       this.lesexcursions = this.lesexcursions.filter(exc=>exc.id !=id)

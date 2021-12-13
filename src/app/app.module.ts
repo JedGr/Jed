@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { MenuComponent } from './component/menu/menu.component';
 import { AccueilComponent } from './component/accueil/accueil.component';
 import { ListeComponent } from './component/liste/liste.component';
-import { ExcursionComponent } from './component/excursion/excursion.component';
 import { ErreurComponent } from './component/erreur/erreur.component';
 import { WhyusComponent } from './component/whyus/whyus.component';
 import { ContactComponent } from './component/contact/contact.component';
@@ -18,14 +17,14 @@ import { InscriptionComponent } from './component/inscription/inscription.compon
 import {HttpClientModule} from "@angular/common/http";
 import { AdminComponent } from './component/admin/admin.component';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import { FormsModule } from '@angular/forms';
+import { PipePipe } from './pipe.pipe'; 
 @NgModule({
   declarations: [
     AppComponent,
     MenuComponent,
     AccueilComponent,
     ListeComponent,
-    ExcursionComponent,
     ErreurComponent,
     WhyusComponent,
     ContactComponent,
@@ -35,12 +34,15 @@ import { ReactiveFormsModule } from '@angular/forms';
     CommentaireComponent,
     InscriptionComponent,
     AdminComponent,
+    PipePipe,
+    
    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,
     ReactiveFormsModule
   ],
   providers: [],
